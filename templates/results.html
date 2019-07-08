@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>GraphingCalc</title>
+		<div class="header">
+			<p>GraphingCalc</p>
+		</div>
+	
+	<style>
+		html{
+			text-align: center;
+		}
+		button{
+			border-radius: 50px;
+		}
+		.header{
+			color: navy;
+			font-family: Tiempos Text;
+			font-size: 50px;
+			font-weight: bold;
+		}
+		img{
+			width: 550px;
+			height: 500px;
+		}
+	</style>
+	
+	</head>
+
+	<body>
+	{% block content %}
+		{% if subject == "single" %}
+			<div>
+				f(x) = {{ function }}<br>
+				f '(x) = {{ first_deriv }}<br>
+				f ''(x) = {{ second_deriv }}<br>
+				f '''(x) = {{ third_deriv }}<br>
+				Integral of {{ function }} : {{ integ_sol }}<br>
+					
+			</div>
+			
+			<br>
+			<div>
+				<!-- Graph of the math function -->
+				<img src="{{url_for('static', filename='./images/graph.jpg')}}" alt="Graph of function">
+			</div>
+		
+		{% else %}		
+			<div>
+				f(x,y) = {{ function }}<br>
+				f<sub>x</sub>(x,y) = {{ partial_X }}<br>
+				f<sub>y</sub>(x,y) = {{ partial_Y }}<br>
+				f<sub>xx</sub>(x,y) = {{ partial_XX }}<br>
+				f<sub>xy</sub>(x,y) = {{ partial_XY }}<br>
+				f<sub>yy</sub>(x,y) = {{ partial_YY }}<br>
+				Double integral of {{ function }} : {{ integ_sol }}<br>
+		
+			</div>
+			
+			<br>
+			<div>
+				Graph:<br>
+				<img src="{{url_for('static', filename='./images/graph.jpg')}}" alt="Graph of function">
+			</div>
+		{% endif %}
+	{% endblock content %}	
+
+	
+	<div>
+		<form action="/">
+			<button value="Back">Back</button>
+		</form>
+	</div>
+	
+	
+	</body>
+</html>

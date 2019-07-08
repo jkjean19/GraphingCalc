@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>GraphingCalc</title>
+		<div class="header">
+			<p>GraphingCalc</p>
+		</div>
+	
+	
+	<style>
+		html{
+			text-align: center;
+		}
+		.header{
+			color: navy;
+			font-family: Tiempos Text;
+			font-size: 50px;
+			font-weight: bold;
+		}
+		input[type=text]{
+			border-radius: 50px;
+		}
+		button{
+			border-radius: 50px;
+		}
+		input[type=radio]{
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			display: inline-block;
+			position: relative;
+			background-color: #f1f1f1;
+			color: navy;
+			top: 10px;
+			height: 30px;
+			width: 30px;
+			border: 0;
+			border-radius: 50px;
+			cursor: pointer;     
+			margin-right: 7px;
+			outline: none;
+		}
+		input[type=radio]:checked::before{
+			position: absolute;
+			font: 15px/1 'Tiempos Text', serif;
+			left: 11px;
+			top: 7px;
+			content: '\02143';
+			transform: rotate(40deg);
+		}
+		input[type=radio]:hover{
+			background-color: #f7f7f7;
+		}
+		input[type=radio]:checked{
+			background-color: #f1f1f1;
+		}
+		label{
+			font: 15px/1.7 'Tiempos Text', serif;
+			color: #333;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			cursor: pointer;
+		} 
+
+	</style>
+	
+	</head>
+
+	<body>
+	
+	<div>
+		<form method="POST" action="/results">
+			<div>
+				Please select your math subject:
+				<br>
+				
+				<input type="radio" name="calc" id="single" value="single">
+				<label for id="single">Calculus</label>
+				
+				<input type="radio" name="calc" id="mvc" value="multi">
+				<label for id="mvc">Multivariable Calculus</label>
+			
+			</div>
+			<br>
+			
+			<div>Please enter your function:
+			<input type="text" name="function">
+			<div>
+			<br>
+			
+			<button value="Enter">Enter</button>
+		</form>
+	</div>
+	
+	
+	</body>
+</html>
