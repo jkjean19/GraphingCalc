@@ -1,0 +1,1 @@
+Used to create the "./static/images" path that will store the web apps saved graph.
