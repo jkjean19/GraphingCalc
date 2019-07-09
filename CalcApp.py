@@ -22,8 +22,7 @@ def result():
     """
     subject = request.form['calc']
     function = request.form['function']
-    #file = "F:/GraphingCalc/static/images/graph0.jpg"
-    file = "./static/images/graph.jpg"
+    file = "./static/images/graph.png"
     
     if subject == 'single':
         result = GC.single_var(function)
