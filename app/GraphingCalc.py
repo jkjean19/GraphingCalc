@@ -47,7 +47,7 @@ def postprocess(function):
     return expr    
 
 
-def graph_2d(function, file="./static/images/graph.jpg"):
+def graph_2d(function, file="./static/images/graph.png"):
     """
     Graphs a math function on a 2 dimensional space.
     
@@ -128,7 +128,7 @@ def single_var(function):
     return [postprocess(first_deriv), postprocess(second_deriv), postprocess(third_deriv), integ, postprocess(integ.doit())]
 
 
-def graph_3d(function, file="./static/images/graph.jpg"):
+def graph_3d(function, file="./static/images/graph.png"):
     """
     Graphs a math function on a 3 dimensional space.
     
