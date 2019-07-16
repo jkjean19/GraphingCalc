@@ -13,7 +13,7 @@ quantitative subjects, such as linear algebra and statistics.
 </p>
 
 <p align="center">
-  <b>Result Page:</b><br>
+  <b>Results Page:</b><br>
   <img src="https://github.com/jkjean19/GraphingCalc/blob/master/screenshots/GraphingCalc_result.PNG" width="360">
 </p>
 
