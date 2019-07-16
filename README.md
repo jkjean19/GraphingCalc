@@ -4,6 +4,8 @@ A simple Python web app built with Flask that assists with performing math tasks
 At this moment, it mainly focuses on key areas of single and multivariable calculus. However, there are plans being made to add other 
 quantitative subjects, such as linear algebra and statistics.
 <br>
+<br>
+<br>
 
 <p align="center">
   <b>Home Page:</b><br>
