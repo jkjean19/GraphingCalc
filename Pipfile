@@ -10,6 +10,7 @@ flask = "*"
 sympy = "*"
 matplotlib = "*"
 numpy = "*"
+flask-sqlalchemy = "*"
 
 [requires]
 python_version = "3.6"
