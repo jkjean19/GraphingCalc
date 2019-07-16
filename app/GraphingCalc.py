@@ -47,7 +47,7 @@ def postprocess(function):
     return expr    
 
 
-def graph_2d(function, file="./static/images/graph.png"):
+def graph_2d(function, file):
     """
     Graphs a math function on a 2 dimensional space.
     
@@ -112,7 +112,7 @@ def integral(function):
     return Integral(expr, (x))
 
 
-def single_var(function):
+def single_var(function, file):
     """
     Calls the diff, integral, and graph_2d functions.
     
@@ -123,12 +123,12 @@ def single_var(function):
     second_deriv = diff(first_deriv)
     third_deriv = diff(second_deriv)
     integ = integral(function)
-    graph_2d(function)
+    graph_2d(function, file)
     
     return [postprocess(first_deriv), postprocess(second_deriv), postprocess(third_deriv), integ, postprocess(integ.doit())]
 
 
-def graph_3d(function, file="./static/images/graph.png"):
+def graph_3d(function, file):
     """
     Graphs a math function on a 3 dimensional space.
     
@@ -201,7 +201,7 @@ def dbl_integral(function):
     return Integral(expr, (x, y))
     
 
-def multi_var(function):
+def multi_var(function, file):
     """
     Calls the partial_diff, dbl_integral, and graph_3d functions.
     
@@ -212,7 +212,7 @@ def multi_var(function):
     partial_XX, partial_XY = partial_diff(partial_X)
     partial_YX, partial_YY = partial_diff(partial_Y)
     dbl_integ = dbl_integral(function)    
-    graph_3d(function)
+    graph_3d(function, file)
     
     return [postprocess(partial_X), postprocess(partial_Y), postprocess(partial_XX), 
             postprocess(partial_XY), postprocess(partial_YY), dbl_integ, postprocess(dbl_integ.doit())]
