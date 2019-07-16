@@ -43,7 +43,7 @@
 			<br>
 			<div>
 				<!-- Graph of the math function -->
-				<img src="{{url_for('static', filename='./images/graph.jpg')}}" alt="Graph of function">
+				<img src="{{url_for('static', filename=img_file)}}" alt="Graph of function">
 			</div>
 		
 		{% else %}		
@@ -60,8 +60,8 @@
 			
 			<br>
 			<div>
-				Graph:<br>
-				<img src="{{url_for('static', filename='./images/graph.jpg')}}" alt="Graph of function">
+				<!-- Graph of math function -->
+				<img src="{{url_for('static', filename=img_file)}}" alt="Graph of function">
 			</div>
 		{% endif %}
 	{% endblock content %}	
