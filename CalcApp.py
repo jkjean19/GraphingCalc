@@ -6,7 +6,7 @@ A web application that utilizes the GraphingCalc.py functions.
 from flask import Flask, render_template, request
 from urllib.parse import quote
 import app.GraphingCalc as GC
-from app.models import db, Post
+from app.models import db, PostSingle, PostMulti
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost:5432/calc_app'
@@ -29,11 +29,10 @@ def result():
     file = './images/' + quote(subject + '&' + function) + '.png'
     
     if subject == 'single':
-        result = GC.single_var(function)
-        GC.graph_2d(function, file)
+        result = GC.single_var(function, './static/'+file)
         
-        if not db.session.query(Post).filter(Post.func == function).count():
-            db_post = Post(function, file)
+        if not db.session.query(PostSingle).filter(PostSingle.func == function).count():
+            db_post = PostSingle(function, file)
             db.session.add(db_post)
             db.session.commit()
             
@@ -47,11 +46,10 @@ def result():
                                img_file = file)
     
     else:
-        result = GC.multi_var(function)
-        GC.graph_3d(function, file)
+        result = GC.multi_var(function, './static/'+file)
         
-        if not db.session.query(Post).filter(Post.func == function).count():
-            db_post = Post(function, file)
+        if not db.session.query(PostMulti).filter(PostMulti.func == function).count():
+            db_post = PostMulti(function, file)
             db.session.add(db_post)
             db.session.commit()
             
