@@ -70,7 +70,10 @@ def graph_2d(function, file):
     ax.plot(x_axis, y_axis)
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
-    plt.savefig(file)
+    
+    if file != None:
+        plt.savefig(file)
+        
     plt.close()
 
 
@@ -92,7 +95,26 @@ def diff(function):
 
     return sympy.diff(expr, x)
 
+def extrema(function):
+
+    from sympy import symbols, solveset, Eq, subs
     
+    x = symbols('x')
+    slope = diff(function)
+    extrema = solveset(Eq(slope, 0), x)
+    minima, maxima, saddle = [], [], []
+    
+    for point in extrema:
+        if subs(diff(slope), point) < 0:
+            maxima.append(point)
+        elif subs(diff(slope), point) > 0:
+            minima.append(point)
+        else:
+            saddle.append(point)
+    
+    return minima, maxima, saddle
+
+
 def integral(function):
     """
     Integrates a single variable math function.
@@ -158,7 +180,10 @@ def graph_3d(function, file):
             Z[i][j] = expr.subs([(x, X[i][j]), (y, Y[i][j])])
     
     ax.plot_surface(X, Y, Z, cmap='coolwarm_r')
-    plt.savefig(file)
+    
+    if file != None:
+        plt.savefig(file)
+        
     plt.close()
 
 def partial_diff(function):
@@ -180,6 +205,29 @@ def partial_diff(function):
     partial_X = diff(expr, x)
     partial_Y = diff(expr, y)
     return partial_X, partial_Y
+
+
+def multi_extrema(function):
+    from sympy import symbols, sympify, linsolve
+    
+    x, y = symbols('x'), symbols('y')
+    partial_X, partial_Y = partial_diff(function)
+    solve_set = linsolve([partial_X, partial_Y], (x,y))
+    
+    partial_XX, partial_XY = partial_diff(partial_X)
+    partial_YY = partial_diff(partial_Y)[1]
+    discriminant = sympify(partial_XX*partial_YY - partial_XY**2)
+    minima, maxima, saddle = [], [], []
+    
+    for pair in solve_set:
+        if discriminant.subs((x, pair[0]), (y, pair[1])) < 0:
+            maxima.append(pair)
+        elif discriminant.subs((x, pair[0]), (y, pair[1])) > 0:
+            minima.append(pair)
+        else:
+            saddle.append(pair)
+    
+    return minima, maxima, saddle
 
 
 def dbl_integral(function):
@@ -215,4 +263,4 @@ def multi_var(function, file):
     graph_3d(function, file)
     
     return [postprocess(partial_X), postprocess(partial_Y), postprocess(partial_XX), 
-            postprocess(partial_XY), postprocess(partial_YY), dbl_integ, postprocess(dbl_integ.doit())]
+            postprocess(partial_XY), postprocess(partial_YY), postprocess(dbl_integ.doit())]
