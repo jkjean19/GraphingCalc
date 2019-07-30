@@ -1,7 +1,7 @@
 # GraphingCalc
 A simple Python web app built with Flask that assists with performing math tasks. 
 
-At this moment, it mainly focuses on key areas of single and multivariable calculus. However, there are plans being made to add other 
+At this moment, it performs some key calculations for single and multivariable calculus. However, there are plans to add other 
 quantitative subjects, such as linear algebra and statistics.
 <br>
 <br>
@@ -18,22 +18,13 @@ quantitative subjects, such as linear algebra and statistics.
 </p>
 
 
-
-#### Python Libraries<br>
-<a href="https://github.com/pallets/flask">Flask</a><br>
-<a href="https://github.com/sympy/sympy">Sympy</a><br>
-<a href="https://github.com/matplotlib/matplotlib">Matplotlib</a><br>
-<a href="https://github.com/numpy/numpy">Numpy</a>
-
 #### Current Features<br>
 Graphing<br>
 Differentiating<br>
 Integrating
 
 #### Improvements/Additions To Be Made<br>
-Clearing the Flask Cache After Use<br>
 Limits<br>
-Finding Minima/Maxima<br>
 Gradients<br>
 Lagrange Multipliers<br>
 Etc.
